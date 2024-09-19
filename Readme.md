@@ -16,8 +16,14 @@ TERRAFORM
 * terraform 
 * aws cli
 * azure cli
+# Vnet-tf
+* This folder has modules which hepls in
+   * creating resource-group
+   * creating Virtual network
+   * and Subnet 
 # sample.tf
 * we need to create a file with extension as '.tf'
 * In this **sample.tf**,
    * used azure as provider 
    * I had created a resource group with name as 'test'
+* [ref](https://github.com/Srikanthkovuri/azure-terraform/blob/main/sample.tf)
