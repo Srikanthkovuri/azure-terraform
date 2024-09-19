@@ -1,11 +1,11 @@
 resource "azurerm_resource_group" "Vnet-demo" {
-  name     = "Vnet-demo"
-  location = "eastus"
+  name     = var.resource_group_name
+  location = var.resource_group_location
 }
 resource "azurerm_virtual_network" "Vnet" {
-    name = "Vnet-terraform"
+    name = var.vnet_name
     resource_group_name = azurerm_resource_group.Vnet-demo.name
-    address_space = ["172.16.0.0/16"]
+    address_space = [var.vnet_cidr]
     location = azurerm_resource_group.Vnet-demo.location
 
     depends_on = [ 
@@ -14,26 +14,26 @@ resource "azurerm_virtual_network" "Vnet" {
     
 }
 resource "azurerm_subnet" "Web" {
-    name="web"
+    name=var.subnet_names[0]
     resource_group_name = azurerm_resource_group.Vnet-demo.name
     virtual_network_name = azurerm_virtual_network.Vnet.name
-    address_prefixes =["172.16.0.0/24"]
+    address_prefixes =[var.subnet_cidr[0]]
     depends_on = [ azurerm_virtual_network.Vnet ]
   
 }
 resource "azurerm_subnet" "app" {
-    name = "app"
+    name = var.subnet_names[1]
     resource_group_name = azurerm_resource_group.Vnet-demo.name
     virtual_network_name = azurerm_virtual_network.Vnet.name
-    address_prefixes = ["172.16.1.0/24"]
+    address_prefixes = [var.subnet_cidr[1]]
     depends_on = [ azurerm_virtual_network.Vnet ]
   
 }
 resource "azurerm_subnet" "db" {
-    name = "db"
+    name = var.subnet_names[2]
     resource_group_name = azurerm_resource_group.Vnet-demo.name
     virtual_network_name = azurerm_virtual_network.Vnet.name
-    address_prefixes = ["172.16.2.0/24"]
+    address_prefixes = [var.subnet_cidr[2]]
     depends_on = [ azurerm_virtual_network.Vnet ]
   
 }

@@ -21,9 +21,23 @@ TERRAFORM
    * creating resource-group
    * creating Virtual network
    * and Subnet 
+* [ref](https://github.com/Srikanthkovuri/azure-terraform/tree/main/Vnet-tf)
 # sample.tf
 * we need to create a file with extension as '.tf'
 * In this **sample.tf**,
    * used azure as provider 
    * I had created a resource group with name as 'test'
+* ```bash
+    terraform init
+    ```
+* ```bash
+    terraform validate
+    ```
+* ```bash
+    terraform apply
+    ```
+* To destroy,run this
+* ```bash
+    terraform destroy
+    ```
 * [ref](https://github.com/Srikanthkovuri/azure-terraform/blob/main/sample.tf)
