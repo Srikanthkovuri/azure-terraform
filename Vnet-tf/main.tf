@@ -1,39 +1,24 @@
 resource "azurerm_resource_group" "Vnet-demo" {
-  name     = var.resource_group_name
-  location = var.resource_group_location
+  name     = var.resource_group_config.name
+  location = var.resource_group_config.location
 }
 resource "azurerm_virtual_network" "Vnet" {
-    name = var.vnet_name
-    resource_group_name = azurerm_resource_group.Vnet-demo.name
-    address_space = [var.vnet_cidr]
-    location = azurerm_resource_group.Vnet-demo.location
+  name                = var.vnet_config.name
+  resource_group_name = azurerm_resource_group.Vnet-demo.name
+  address_space       = [var.vnet_config.address_prefix]
+  location            = azurerm_resource_group.Vnet-demo.location
 
-    depends_on = [ 
-        azurerm_resource_group.Vnet-demo 
-        ]
-    
+  depends_on = [
+    azurerm_resource_group.Vnet-demo
+  ]
+
 }
-resource "azurerm_subnet" "Web" {
-    name=var.subnet_names[0]
-    resource_group_name = azurerm_resource_group.Vnet-demo.name
-    virtual_network_name = azurerm_virtual_network.Vnet.name
-    address_prefixes =[var.subnet_cidr[0]]
-    depends_on = [ azurerm_virtual_network.Vnet ]
-  
-}
-resource "azurerm_subnet" "app" {
-    name = var.subnet_names[1]
-    resource_group_name = azurerm_resource_group.Vnet-demo.name
-    virtual_network_name = azurerm_virtual_network.Vnet.name
-    address_prefixes = [var.subnet_cidr[1]]
-    depends_on = [ azurerm_virtual_network.Vnet ]
-  
-}
-resource "azurerm_subnet" "db" {
-    name = var.subnet_names[2]
-    resource_group_name = azurerm_resource_group.Vnet-demo.name
-    virtual_network_name = azurerm_virtual_network.Vnet.name
-    address_prefixes = [var.subnet_cidr[2]]
-    depends_on = [ azurerm_virtual_network.Vnet ]
-  
+resource "azurerm_subnet" "subnets" {
+  count                = length(var.subnet_config)
+  name                 = var.subnet_config[count.index].name
+  resource_group_name  = azurerm_resource_group.Vnet-demo.name
+  virtual_network_name = azurerm_virtual_network.Vnet.name
+  address_prefixes     = [var.subnet_config[count.index].address_prefix]
+  depends_on           = [azurerm_virtual_network.Vnet]
+
 }

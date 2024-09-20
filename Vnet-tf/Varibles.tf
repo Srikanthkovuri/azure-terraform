@@ -1,31 +1,41 @@
-variable "resource_group_name" {
-    type = string
-    default = "Vnet-demo"
+variable "resource_group_config" {
+  type = object({
+    name     = string
+    location = string
+  })
+  description = "Resource-group config"
+  default = {
+    name     = "Vnet-demo"
+    location = "eastus"
+  }
 
 }
-variable "resource_group_location" {
-  type = string
-  default = "eastus"
+variable "vnet_config" {
+  type = object({
+    name           = string
+    address_prefix = string
+  })
+  description = "Vnet configuration"
+  default = {
+    name = "Vnet-terraform"
+  address_prefix = "172.16.0.0/16" }
 }
-variable "vnet_name" {
-    type = string
-    default = "Vnet-terraform"
-    description = "Azure vnet from terraform"
-}
-variable "vnet_cidr" {
-    type = string
-    default = "172.16.0.0/16"
-    description = "vnet cidr range"
-  
-}
-variable "subnet_names" {
-    type = list(string)
-    default = [ "web","app","db" ]
-    description = "subnet names"
-}
-variable "subnet_cidr" {
-    type = list(string)
-    default = [ "172.16.0.0/24","172.16.1.0/24","172.16.2.0/24" ]
-    description = "subnet cidr ranges"
-  
+variable "subnet_config" {
+  type = list(object({
+    name           = string
+    address_prefix = string
+  }))
+  description = "subnet config"
+  default = [{
+    name           = "web"
+    address_prefix = "172.16.0.0/24"
+    },
+    {
+      name           = "app"
+      address_prefix = "172.16.1.0/24"
+    },
+    {
+      name           = "db"
+      address_prefix = "172.16.2.0/24"
+  }]
 }
