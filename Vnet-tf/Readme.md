@@ -5,6 +5,7 @@
    * [ref](https://developer.hashicorp.com/terraform/language/values/variables)
    * create a file as 'variables.tf'
    * write all the neccessary variables using HCL
+   * [ref](https://github.com/Srikanthkovuri/azure-terraform/edit/main/Vnet-tf/Varibles.tf)
 * Now, Make changes in main configuration file 
    * By calling varibales created in variables file into main file
 * Now run this,
@@ -24,7 +25,7 @@
        * web
        * app
        * db 
-* [ref](https://github.com/Srikanthkovuri/azure-terraform/tree/main/Vnet-tf)
+* [ref](https://github.com/Srikanthkovuri/azure-terraform/tree/main/Vnet-tf/main.tf)
 * To destroy, run this
 * ```bash
     terraform destroy
