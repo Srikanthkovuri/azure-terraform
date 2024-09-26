@@ -1,0 +1,3 @@
+[submodule "azure-tf-workspace"]
+	path = azure-tf-workspace
+	url = https://github.com/Srikanthkovuri/azure-tf-workspace.git
