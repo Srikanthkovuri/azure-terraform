@@ -16,6 +16,14 @@ TERRAFORM
 * terraform 
 * aws cli
 * azure cli
+# using-modules
+* This folder has modules which helps in
+   * creating resource-group
+   * creating Virtual network
+   * Subnet
+   * network-security-group with custom rules
+   * and finall virtual machine
+* With the help of modules 
 # Vnet-tf
 * This folder has modules which hepls in
    * creating resource-group
