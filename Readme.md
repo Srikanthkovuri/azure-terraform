@@ -24,6 +24,7 @@ TERRAFORM
    * network-security-group with custom rules
    * and finall virtual machine
 * With the help of modules 
+[refer here](https://github.com/Srikanthkovuri/azure-terraform/tree/main/using-modules)
 # Vnet-tf
 * This folder has modules which hepls in
    * creating resource-group
