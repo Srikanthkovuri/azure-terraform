@@ -43,7 +43,7 @@ module "linuxservers" {
   data_disk_size_gb                = 64
   data_sa_type                     = "Premium_LRS"
   enable_ssh_key                   = true
-  ssh_key_values                   = ["ssh-rsa AAAAB3NzaCyc2EAAAADAQABAAACAQDK87Bt3PFCeoEfPT7yv/w//T5ptjeMB2ksKjDm6hcaOROj6bvW4wAcmfQEqbwONcYP6E34dy6vKHON9inPEhvbp7rzPhC1uRKwUqhLNHnWPh924yRivf8z5JLWpG9+bMhSB6exb2q+WE96eWr8wRTYR2LRG5GUJoNxhQCEMqjupucIxDc0oienaQFf7PPNuwYTaE+IE1IlxQvtzD/9lF8rAIZGXveXp3bsuZJUUSUa6UojxGs4r5dqQftZjjYBoQ6i+rUVFyWayjNDFgYpgYWZcr0HC6T6M6dbynhhnEony2+A5lPnjv2zFfyXM+epwadnrq76gs9eGN7PJfAZecCW6ORcJ5nnbw== srikanth@srikanth"]
+  ssh_key_values                   = ["ssh-rsa AAAAB3NzaCyc2EAAAADAQABAAACAQDK87Bt3PFCeoEfPT7yv/w//T5ptjeMB2ksKjDm6hcaOROj6bvW4wAcmfQEqbwONcYP6E34dy6vKHON9inPEhvbp7rzPhC1uRKwUqhLNHnWPh924yRivf8z5JLWpG" ]
   vm_size                          = "Standard_D4s_v3"
   delete_data_disks_on_termination = true
 
